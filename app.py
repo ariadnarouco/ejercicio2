@@ -26,8 +26,7 @@ def main():
         rows = cursor.fetchall()
         resp = jsonify(rows)
         resp.status_code = 200
-        print("TODO OK")
-        return "Hello World!"
+        return resp
 
     finally:
         if cursor != None:
