@@ -23,7 +23,6 @@ docker network create --driver bridge --subnet 180.10.0.0/16 ${NETWORK_NAME}
 MYSQL_ROOT_PASSWORD="secret"
 MYSQL_DATABASE="test_db"
 PORTS="3307:3306"
-VOLUME="$PWD/school.sql:/school.sql"
 MYSQL_HOST="mysql"
 
 DATABASE_NAME="mysql-database"
@@ -31,7 +30,7 @@ echo "Building database..."
 docker build -t ${DATABASE_NAME} -f Dockerfile-db .
 
 echo "Running Database..."
-docker run --name ${DATABASE_NAME} -d -e MYSQL_RANDOM_ROOT_PASSWORD='1' -e MYSQL_DATABASE=${MYSQL_DATABASE} -e MYSQL_USER=exampleuser -e MYSQL_PASSWORD=examplepass -p ${PORTS} -v ${PWD}/${DATABASE_DIR}:/var/lib/mysql --network ${NETWORK_NAME} --network-alias mysql -v ${VOLUME} --restart always ${DATABASE_NAME}
+docker run --name ${DATABASE_NAME} -d -e MYSQL_RANDOM_ROOT_PASSWORD='1' -e MYSQL_DATABASE=${MYSQL_DATABASE} -e MYSQL_USER=exampleuser -e MYSQL_PASSWORD=examplepass -p ${PORTS} -v ${DATABASE_DIR}:/var/lib/mysql --network ${NETWORK_NAME} --network-alias mysql --restart always ${DATABASE_NAME}
 
 APP_NAME="flask-application"
 echo "Building app..."

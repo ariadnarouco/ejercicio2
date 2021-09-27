@@ -35,4 +35,13 @@ try:
 3. Utilizando la **Terminal** ejecutar el script en bash con el nombre de create-env.sh
 4. Utilizar el navegador e ingresar: [localhost:8081](http://localhost:8081) 
 5. En función de la consulta se puede ver la respuesta a la consulta de la tabla **students**
-6. Una vez finalizado el uso y prueba de los contenedores se puede proceder hacer la limpieza de los volúmenes, redes y contenedores a partir de la ejecución del script: [delete-env.sh](https://github.com/ariadnarouco/ejercicio2/blob/main/delete-env.sh)
+6. Una vez finalizado el uso y prueba de los contenedores se puede proceder hacer la limpieza de los volúmenes, redes y contenedores a partir de la ejecución del script: [clean.sh](https://github.com/ariadnarouco/ejercicio2/blob/main/clean.sh)
+
+
+## Ver Artefactos
+
+``` 
+docker ps && docker network list && docker volume ls
+```
+
+![alt text](artavia_balfour_rouco_tablon.png)
