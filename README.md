@@ -11,11 +11,11 @@ A continuación se presenta la resolución del ejercicio del Grupo 1.
 ## Desarrollo
 
 - Primero se realizó una búsqueda de posibles aplicaciones basadas en DB y aplicativo web en el [Docker Hub](https://hub.docker.com/search?type=image)
-- Para la solución de la práctica se decidió construir un contenedor con una [API sencilla desarrollada en Python](https://github.com/ariadnarouco/ejercicio2/blob/main/app.py) haciendo uso de la librería **[Flask](https://flask.palletsprojects.com/en/2.0.x/)**  que se comunique con una base de datos MySQL. Para el caso del contenedor de MySQL se utilizó la imagen presentada en el ejemplo de [**Docker Hub de Multi container Apps](https://docs.docker.com/get-started/07_multi_container/).**
+- Para la solución de la práctica se decidió construir un contenedor con una [API sencilla desarrollada en Python](https://github.com/ariadnarouco/ejercicio2/blob/main/app.py) haciendo uso de la librería **[Flask](https://flask.palletsprojects.com/en/2.0.x/)**  que se comunique con una base de datos MySQL. Para el caso del contenedor de MySQL se utilizó la imagen presentada en el ejemplo de [**Docker Hub de Multi container Apps**](https://docs.docker.com/get-started/07_multi_container/).
 
 ### API app.py
 
-Script sencillo para conectarse con la base de datos del contenedor y publicar los datos de la tabla students dentro de **[school.sql**](https://github.com/ariadnarouco/ejercicio2/blob/main/school.sql) de MySQL:
+Script sencillo para conectarse con la base de datos del contenedor y publicar los datos de la tabla students dentro de [**school.sql**](https://github.com/ariadnarouco/ejercicio2/blob/main/school.sql) de MySQL:
 
 ```python
 try:
@@ -45,3 +45,22 @@ docker ps && docker network list && docker volume ls
 ```
 
 ![alt text](artavia_balfour_rouco_tablon.png)
+
+
+## Archivos
+
+| Archivos  |  Descripción  |   
+|---|---|
+| README.md          |  Archivo con instrucciones para ejecutar el proyecto. 
+|  app.py            |   Apilcación Python|   
+|  requirements.txt  |   Archivo que resuelve dependencias de la aplicación Python|   
+|  Dockerfile-app    |  Es el Dockerfile de la aplicación hecha en Flask.  |   
+|  Dockerfile-db     |  Es el Dockerfile de la base de datos donde especificamos un script en SQL para insertar data en la base de datos (school.sql) |  
+|  school.sql |  Archivo con tablas y datos que se insertaran en la base de datos al arrancar el container |  
+|  create-env.sh |  Script en bash que contiene los comandos para levantar tanto la aplicación como la base de datos y crea una network para la comunicación directa |   
+|  delete-env.sh |  Script que detiene y elimina los containers creados.  |   
+
+
+
+
+
