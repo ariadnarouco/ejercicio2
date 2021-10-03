@@ -8,4 +8,8 @@ COPY . app
 
 RUN pip install -r app/requirements.txt
 
-CMD [ "python", "app/app.py" ]
+LABEL Grupo=Uno
+
+EXPOSE 8081
+
+ENTRYPOINT [ "python", "app/app.py" ]
