@@ -15,14 +15,20 @@ app.config['MYSQL_DATABASE_HOST'] = os.environ['MYSQL_DATABASE_HOST']
 mysql.init_app(app)
 
 
+table = os.environ['TABLE']
+columns = os.environ['COLUMNS']
+
+
 @app.route("/")
 def main():
     cursor = None
     conn = None
+
     try:
         conn = mysql.connect()
         cursor = conn.cursor(pymysql.cursors.DictCursor)
-        cursor.execute("SELECT * FROM students")
+        print(table)
+        cursor.execute("SELECT " + columns + " FROM "+table)
         rows = cursor.fetchall()
         resp = jsonify(rows)
         resp.status_code = 200

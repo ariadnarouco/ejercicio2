@@ -4,6 +4,8 @@ echo "Script starting..."
 
 DATABASE_DIR="database-data"
 
+./clean.sh
+
 if [ -d ${DATABASE_DIR} ] 
 then
     echo "Directory ${DATABASE_DIR} exists. :)" 

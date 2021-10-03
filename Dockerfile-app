@@ -2,6 +2,10 @@ FROM python:3
 
 RUN mkdir /app
 
+ENV TABLE=students
+
+ENV COLUMNS=first_name,last_name
+
 WORKDIR app
 
 COPY . app 
