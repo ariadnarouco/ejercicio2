@@ -1,4 +1,4 @@
-# Ejercicio 2: Docker Run
+# Ejercicio 3: Docker Run
 
 A continuación se presenta la resolución del ejercicio del Grupo 1.
 
@@ -34,7 +34,7 @@ try:
 2. Descargar el repositorio localmente
 3. Utilizando la **Terminal** ejecutar el script en bash con el nombre de create-env.sh
 4. Utilizar el navegador e ingresar: [localhost:8081](http://localhost:8081) 
-5. En función de la consulta se puede ver la respuesta a la consulta de la tabla **students**
+5. Con las variables de entorno se puede modificar la consulta a la base de datos especificando tabla y columnas
 6. Una vez finalizado el uso y prueba de los contenedores se puede proceder hacer la limpieza de los volúmenes, redes y contenedores a partir de la ejecución del script: [clean.sh](https://github.com/ariadnarouco/ejercicio2/blob/main/clean.sh)
 
 
