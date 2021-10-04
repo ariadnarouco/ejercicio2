@@ -1,19 +1,29 @@
+# Imagen base el cual se utiliza con cimientos del contenedor
 FROM python:3
 
 RUN mkdir /app
 
+# Variable de ambiente para definir la tabla donde se harán las consultas que devuelve la Web API
+
 ENV TABLE=students
+
+# Variable de ambiente con la que se puede modificar las columnas/caracteristicas que devuelven la Web API 
+# Por defecto esta definido el primer nombre y apellido
 
 ENV COLUMNS=first_name,last_name
 
+# Se establece el directorio de trabajo y que archivos se estaran copiando
 WORKDIR app
 
 COPY . app 
 
+# Se realiza la instalación de librerias que requiere la aplicación de python
 RUN pip install -r app/requirements.txt
 
+# Se etiqueta el build como Grupo 1
 LABEL Grupo=Uno
 
 EXPOSE 8081
 
+# Establecen los siguientes comandos de entrada para la ejecución del contenedor
 ENTRYPOINT [ "python", "app/app.py" ]
