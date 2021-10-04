@@ -44,8 +44,6 @@ try:
 docker ps && docker network list && docker volume ls
 ```
 
-![alt text](artavia_balfour_rouco_tablon.png)
-
 
 ## Archivos
 
