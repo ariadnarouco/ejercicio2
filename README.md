@@ -1,4 +1,4 @@
-# Ejercicio 3: Docker Build
+# Ejercicio 4: Docker Build
 
 A continuación se presenta la resolución del ejercicio del Grupo 1.
 
