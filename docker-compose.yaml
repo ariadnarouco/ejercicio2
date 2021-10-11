@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+
+  mysql:
+    image: harbor.tallerdevops.com/grupo1/mysql:v1
+    restart: always
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: '1' 
+      MYSQL_DATABASE: test_db
+      MYSQL_USER: exampleuser 
+      MYSQL_PASSWORD: examplepass 
+    volumes:
+      - ./database-data:/var/lib/mysql
+    networks:
+      - network-flask-mysql
+  app:
+    depends_on:
+      - "mysql"
+    build: 
+      context: ./app
+      dockerfile: Dockerfile-app
+    restart: always
+    ports:
+      - "8081:8081"
+    environment:
+      MYSQL_DATABASE_USER: exampleuser 
+      MYSQL_DATABASE_PASSWORD: examplepass 
+      MYSQL_DATABASE_DB: test_db 
+      MYSQL_DATABASE_HOST: mysql
+    networks:
+      - network-flask-mysql
+volumes:
+  database-data:
+networks:
+  network-flask-mysql:
+    driver: bridge
