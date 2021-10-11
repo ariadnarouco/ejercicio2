@@ -16,9 +16,7 @@ services:
   app:
     depends_on:
       - "mysql"
-    build: 
-      context: ./app
-      dockerfile: Dockerfile-app
+    image: harbor.tallerdevops.com/grupo1/flask-application:v1
     restart: always
     ports:
       - "8081:8081"
